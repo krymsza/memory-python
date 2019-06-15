@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import socket
-import thread
-import codes
+from threading import Thread
+import store.codes as codes
+
+EOF = '\0'
+CRLF = '\r\n'
 
 class SocketServer(socket.socket):
     clients = []
@@ -20,7 +23,7 @@ class SocketServer(socket.socket):
         try:
             self.accept_clients()
         except Exception as ex:
-            print ex
+            print( ex)
         finally:
             for client in self.clients:
                 client.close()
@@ -30,8 +33,10 @@ class SocketServer(socket.socket):
         while 1:
             (clientsocket, address) = self.accept()
             self.clients.append(clientsocket)
-            self.onopen(clientsocket)
-            thread.start_new_thread(self.recieve, (clientsocket,))
+            self.on_open(clientsocket)
+            t = Thread(None, self.recieve, None, (clientsocket,))
+            t.start()
+            t.join()
 
     def recieve(self, client):
         while 1:
@@ -39,15 +44,15 @@ class SocketServer(socket.socket):
             if data == '':
                 break
             #Message Received
-            self.onmessage(client, data)
+            self.on_message(client, data)
         #Removing client from clients list
         self.clients.remove(client)
         #Client Disconnected
-        self.onclose(client)
+        self.on_close(client)
         #Closing connection with client
         client.close()
         #Closing thread
-        thread.exit()
+        Thread.exit()
 
     def broadcast(self, message):
         for client in self.clients:

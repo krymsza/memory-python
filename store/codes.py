@@ -15,7 +15,7 @@ codes=[
 ]
 
 responses={
-    10: "Hi There :)",
+    10: "Memorsy! Hi There :)",
     11: "Server Not Avalible",
     20: "TalkToMe",
     22: "Success",

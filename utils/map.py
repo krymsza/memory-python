@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 import random
-from card import Card
+from store.card import Card
 
-class Map():
-    def __init__(self, level):
-        self.level = level
+
+class Map(object):
+    levels= { 1: 3, 2: 5}
+    def __init__(self,):
+        self.read()
+        pass
         
     def read(self):
-        file = open("cards.txt","r")
+        file = open("../store/cards.txt","r")
         line = file.readline()
         self.allWords = []
         while line !="":
@@ -16,16 +19,23 @@ class Map():
             line = file.readline()
         file.close()
 
-    def random(self):
-        random.shuffle(self.allWords)
-        self.words = self.allWords[:int(pow(self.sideLen,2)/2)]
+    def random(self, level):
+        random.shuffle(self.allWords)               # mix all cards
+        self.words = self.allWords[:int(self.levels[level])]
         
     def create_cards(self):
         self.cards = []
-        for i in self.words:
-            self.cards.append(Card(i,False))
-            
-    def create_map(self):
+        i = 0
+        for word in self.words:
+            self.cards.append(Card(word, False, i))
+            i+=1
+
+    #TODO: add maping (card, position in map)       
+    def create_map(self, level):
+        self.random(level)                          # drawing cards from file
         self.words = self.words*2
-        #random.shuffle
-        #TODO: add maping (card, position in map)
+        print('words draw for deck: ', self.words)
+        self.create_cards()
+        random.shuffle(self.cards)
+        return  self.cards
+        
