@@ -23,7 +23,6 @@ class App:
         self.attempts = 0
         self.pairs = 0
         self.found = False
-        self.two_up = False
         self.root.title("Memorsy!")
         tk.Frame(self.root, width=500, height=450).pack()
         self.setLevel()
@@ -33,7 +32,6 @@ class App:
         self.cards_to_compare = []
         self.attempts = 0
         self.pairs = 0
-        self.two_up = False
         
     def recv_all(self, crlf):
         data = ''
@@ -69,25 +67,32 @@ class App:
             self.radiobuttons[i].pack(anchor = tk.W)
 
     def send(self):
+        print(' sending level' )
+        self.radiobuttons[0].pack_forget()
+        self.radiobuttons[1].pack_forget()
+        
         self.level = self.levelVal.get()
         self.s.send(int_to_bytes(self.level))
         is_map_created = self.get_response()
+        print(' is map created: ', is_map_created)
         if(is_map_created == int(codes.get_code('Success'))):
             self.start()
             
     def create_cards(self):
+        print('creating empty cards')
         self.cards_layout = []
         for i in range(0, options.levels[self.level]*2):
             self.cards_layout.append(store.card.Card("", False, i))
-
         
     def start(self):
+        print('starting game')
         self.sideLen = options.levels[self.level]
         self.create_cards()
         self.print_board()
 
     #plansza
     def print_board(self):
+        print(' print board')
         xvar=10
         yvar=70
         self.buttons = []
@@ -124,13 +129,6 @@ class App:
             self.buttons[index].config(text=self.get_card_content(index))
             self.cards_up += 1
 
-            #clear card
-            '''if self.two_up == True:
-                print(' mysterious function')
-                self.is_up = self.var.get()
-                self.var.set("")
-                self.is_up = False'''
-
             #clears button if 2 click
             if len(self.cards_to_compare) == 2:
                 if self.found ==  True:
@@ -152,7 +150,6 @@ class App:
                 self.compare()
             else:
                 self.cards_to_compare.append(index)
-                self.two_up = True
                 
         else:
             text = self.var.get()
@@ -170,7 +167,6 @@ class App:
             self.cards_layout[self.cards_to_compare[1]].up = True
             text = self.var.get()
             self.found = True
-            self.two_up= True
         elif result == int(codes.get_code('GameOver')):
             text = self.var.get()
             self.var.set("Gra skończona w " + str(self.attempts) + " próbach.")
@@ -198,19 +194,31 @@ class App:
         self.endGameButton.pack_forget()
         code = codes.get_code('NewGame')
         self.s.send(code.encode() + CRLF.encode())
-        text = self.var.get()
-        self.var.set("")
-        self.text = False
-        self.newGameButton.destroy()
-        for i in range(len(self.buttons)):
-            self.buttons[i].destroy()
-        self.attemps = 0
-        
-        self.text = False
-        self.setLevel()
+        result = self.get_response()
+        if result == int(codes.get_code("Available")):
+            text = self.var.get()
+            self.var.set("")
+            self.text = False
+            self.newGameButton.destroy()
+            for i in range(len(self.buttons)):
+                self.buttons[i].destroy()
+            for i in range(len(self.radiobuttons)):
+                self.radiobuttons[i].destroy()
+            self.attemps = 0
+            
+            self.text = False
+            self.setLevel()
+        else:
+            print(codes.get_response_text(50))
+            self.s.close()
     
     def endGame(self):
-        pass
+        code = codes.get_code('EndGame')
+        self.s.send(code.encode() + CRLF.encode())
+        self.quit()
+
+    def quit(self):
+        self.root.destroy()
     
 def get_layout(s):
     print('*** app started')

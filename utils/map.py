@@ -29,8 +29,7 @@ class Map(object):
         for word in self.words:
             self.cards.append(Card(word, False, i))
             i+=1
-
-    #TODO: add maping (card, position in map)       
+     
     def create_map(self, level):
         self.random(level)                   # drawing cards from file
         self.words = self.words*2

@@ -60,10 +60,8 @@ class Server(object):
             start_new_thread(self.set_game, (clientsocket,))
 
     def set_game(self, client):
-        print(' setting game: ')
         client.send(codes.get_code("Available").encode() + CRLF.encode())
         level = int(self.recv_int(client))
-
         cards_map = mapa.create_map(level) # normal array
         random.shuffle(cards_map)
         for i in range (0, 6):
@@ -91,11 +89,12 @@ class Server(object):
                         next_game = int(self.recv_all(CRLF, client))
                         if next_game == int(codes.get_code("NewGame")):
                             #new game
-                            print('creating new game' )
                             self.set_game(client)
+                            break
                         else:
                             #end program for client
                             self.endGame(client)
+                            break
                     else:
                         client.send(codes.get_code("PairFound").encode() + CRLF.encode())
                 else:
@@ -110,10 +109,9 @@ class Server(object):
     
     def endGame(self, client):
         self.clients.remove(client)
-        self.on_close(client)
         client.close()
         #Closing thread
-        #Thread.exit()    
+        print('clients count: ', len(self.clients))
     
         
 if __name__ == '__main__':
