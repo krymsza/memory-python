@@ -13,7 +13,7 @@ CRLF = '\r\n'
 def int_from_bytes(xbytes):
     return int.from_bytes(xbytes, 'big')
 
-class Server():
+class Server(object):
      clients = []
      def __init__(self, mapa):
          self.mapa = mapa
@@ -39,33 +39,36 @@ class Server():
      def accept_clients(self):
         while True:
             print(' within for connections')
+            print('clients count: ', len(self.clients))
             (clientsocket, (ip, port)) = self.s.accept()
-            t = Thread(target = ClientThread,args = (clientsocket, ip, port)).start()
-            self.clients.append(t)
-            print('domer')
-            ''' for t in self.clients: 
-                t.join() '''
+            t = Thread(target=ClientThread, args = (clientsocket, ip, port))
+            t.start()
+            self.clients.append(clientsocket)
+            #t.join()
             
-         
+     @classmethod       
+     def remove(self, client):
+        self.clients.remove(client)
          
 class ClientThread(Thread):
 
     def __init__(self, client, ip, port):
-        print(' init client thread')
         Thread.__init__(self)
         self.ip = ip 
         self.port = port
         self.set_game(client)
                  
     def recv_all(self, crlf, conn):
-        data = ''
+        data = ""
         while not data.endswith(crlf):
-            data = data + conn.recv(1).decode()
+            data += conn.recv(1).decode()
         return data
 
-    def recv_int(self, conn):
-        res = conn.recv(10)
-        return int_from_bytes(res)
+    def recv_int(self, crlf, conn):
+        data = b''
+        while not data.endswith(crlf.encode()):
+            data = data + conn.recv(1)
+        return data
     
     def recv_array(self, conn):
         data = conn.recv(1)
@@ -75,14 +78,20 @@ class ClientThread(Thread):
 
     def set_game(self, client):
         client.send(codes.get_code("Available").encode() + CRLF.encode())
-        level = int(self.recv_int(client))
-        cards_map = mapa.create_map(level) # normal array
-        random.shuffle(cards_map)
-        for i in range (0, 6):
-            print(cards_map[i].pos, " : ", cards_map[i].word)
-        client.send(codes.get_code("Success").encode() + CRLF.encode())
-
-        self.handle_game(client, cards_map, level)
+        response = self.recv_int(CRLF, client)
+        
+        if response[:-2].decode() == "QuitGame" :
+            self.endGame(client)
+            print('player quitting game')
+        else:
+            level = int(int_from_bytes(response[:1]))
+            cards_map = mapa.create_map(level) # normal array
+            random.shuffle(cards_map)
+            for i in range (0, 6):
+                print(cards_map[i].pos, " : ", cards_map[i].word)
+            client.send(codes.get_code("Success").encode() + CRLF.encode())
+    
+            self.handle_game(client, cards_map, level)
     
     def handle_game(self, client, cards_map, level):
         self.card_sent = 0
@@ -90,44 +99,46 @@ class ClientThread(Thread):
         while True:
             print('waiting for answer...')
             ans = self.recv_all(CRLF, client)
-            client.send(cards_map[int(ans)].word.encode() + CRLF.encode()) 
-            self.card_sent += 1
-            if self.card_sent == 2:
-                self.card_sent = 0
-                cards_to_check = self.recv_array(client)
-                
-                if cards_map[cards_to_check[0]].word == cards_map[cards_to_check[1]].word:
-                    self.solved_pairs += 1
-                    if self.solved_pairs == options.levels[level]:
-                        client.send(codes.get_code("GameOver").encode() + CRLF.encode())
-                        next_game = int(self.recv_all(CRLF, client))
-                        if next_game == int(codes.get_code("NewGame")):
-                            #new game
-                            self.set_game(client)
-                            break
+            if(ans[:-2] == "QuitGame"):
+                print(' Palyer Quittting game' )
+                self.endGame(client)
+                break
+            else:
+                client.send(cards_map[int(ans)].word.encode() + CRLF.encode()) 
+                self.card_sent += 1
+                if self.card_sent == 2:
+                    self.card_sent = 0
+                    cards_to_check = self.recv_array(client)
+                    
+                    if cards_map[cards_to_check[0]].word == cards_map[cards_to_check[1]].word:
+                        self.solved_pairs += 1
+                        if self.solved_pairs == options.levels[level]:
+                            client.send(codes.get_code("GameOver").encode() + CRLF.encode())
+                            next_game = int(self.recv_all(CRLF, client))
+                            if next_game == int(codes.get_code("NewGame")):
+                                #new game
+                                self.set_game(client)
+                                break
+                            else:
+                                #end program for client
+                                self.endGame(client)
+                                break
                         else:
-                            #end program for client
-                            self.endGame(client)
-                            break
+                            client.send(codes.get_code("PairFound").encode() + CRLF.encode())
                     else:
-                        client.send(codes.get_code("PairFound").encode() + CRLF.encode())
-                else:
-                    client.send(codes.get_code("PairNotFound").encode() + CRLF.encode())
+                        client.send(codes.get_code("PairNotFound").encode() + CRLF.encode())
                 
-                
-        pass
+                pass
     
     def broadcast(self, message):
         for client in self.clients:
             client.send(message)
     
     def endGame(self, client):
-        #self.clients.remove(client)
-        #client.close()
-        #Closing thread
-        print('clients count: ', len(self.clients))
-    
-        
+        Server.remove(client)
+        client.close()
+        print('client removed')
+            
 if __name__ == '__main__':
     mapa = maps.Map()
     server = Server(mapa)

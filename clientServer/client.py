@@ -35,8 +35,9 @@ class client:
         except:
             print(codes.get_response_text(11))
             
-        game = app.get_layout(self.s)
+        app.get_layout(self.s)
 
+        
 if __name__ == '__main__':
     client = client()
     client.start()
