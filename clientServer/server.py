@@ -3,8 +3,7 @@ import socket
 import random
 import pickle
 import store.options as options
-import threading
-from _thread import *
+from threading import Thread
 import store.codes as codes
 import utils.map as maps
 
@@ -14,35 +13,19 @@ CRLF = '\r\n'
 def int_from_bytes(xbytes):
     return int.from_bytes(xbytes, 'big')
 
-class Server(object):
-    clients = []
-    def __init__(self, mapa):
+class Server():
+     clients = []
+     def __init__(self, mapa):
          self.mapa = mapa
          try:
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.s.bind(('127.0.0.1', 5655))
          except:
             print(codes.get_response_text(11))
          print('Server running')
     
-    def recv_all(self, crlf, conn):
-        data = ''
-        while not data.endswith(crlf):
-            data = data + conn.recv(1).decode()
-        return data
-
-    
-    def recv_int(self, conn):
-        res = conn.recv(10)
-        return int_from_bytes(res)
-    
-    def recv_array(self, conn):
-        data = conn.recv(1)
-        while not data.endswith(CRLF.encode()):
-            data += conn.recv(1)
-        return pickle.loads(data)
-
-    def run(self): 
+     def run(self): 
         self.s.listen(4) 
         try:
             self.accept_clients()
@@ -53,11 +36,42 @@ class Server(object):
                 client.close()
             self.s.close()
     
-    def accept_clients(self):
+     def accept_clients(self):
         while True:
-            (clientsocket, address) = self.s.accept()
-            self.clients.append(clientsocket)
-            start_new_thread(self.set_game, (clientsocket,))
+            print(' within for connections')
+            (clientsocket, (ip, port)) = self.s.accept()
+            t = Thread(target = ClientThread,args = (clientsocket, ip, port)).start()
+            self.clients.append(t)
+            print('domer')
+            ''' for t in self.clients: 
+                t.join() '''
+            
+         
+         
+class ClientThread(Thread):
+
+    def __init__(self, client, ip, port):
+        print(' init client thread')
+        Thread.__init__(self)
+        self.ip = ip 
+        self.port = port
+        self.set_game(client)
+                 
+    def recv_all(self, crlf, conn):
+        data = ''
+        while not data.endswith(crlf):
+            data = data + conn.recv(1).decode()
+        return data
+
+    def recv_int(self, conn):
+        res = conn.recv(10)
+        return int_from_bytes(res)
+    
+    def recv_array(self, conn):
+        data = conn.recv(1)
+        while not data.endswith(CRLF.encode()):
+            data += conn.recv(1)
+        return pickle.loads(data)
 
     def set_game(self, client):
         client.send(codes.get_code("Available").encode() + CRLF.encode())
@@ -108,8 +122,8 @@ class Server(object):
             client.send(message)
     
     def endGame(self, client):
-        self.clients.remove(client)
-        client.close()
+        #self.clients.remove(client)
+        #client.close()
         #Closing thread
         print('clients count: ', len(self.clients))
     
