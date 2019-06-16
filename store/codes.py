@@ -4,12 +4,14 @@ CODES
 '''
 codes=[
     ("10", "Available"),
-    ("11", "NotAvailable"),    
-	("20", "TalkToMe"),
-	("22", "Success"),    
-	("34", "FileNotFound"),
-    ("37", "FileFound"),
-	("44", "WrongReqest"),
+    ("11", "NotAvailable"),
+    ("14", "NewGame"),
+    ("17", "EndGame"),
+	("20", "Success"),
+	("22", "PairFound"),    
+	("24", "PairNotFound"),
+    ("27", "GameOver"),
+	("44", "WrongRequest"),
 	("50", "ServerError"),
 	("80", "Closed")
 ]
@@ -17,9 +19,12 @@ codes=[
 responses={
     10: "Memorsy! Hi There :)",
     11: "Server Not Avalible",
-    20: "TalkToMe",
-    22: "Success",
-    37: "File found",
+    14: "Nowa gra",
+    17: "Koniec",
+    20: "Success",
+    22: "It's a pair!",
+    24: "Try again",
+    27: "Game Over",
 	50: "Server error",
 	80: "Goodbye :)"
 }

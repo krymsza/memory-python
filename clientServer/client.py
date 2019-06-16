@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import socket
-import json
-import pickle
 import store.codes as codes
+import components.app as app
 
 EOF = '\0'
 CRLF = '\r\n'
 
 class client:
     def __init__(self):
+        
         try:
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         except:
@@ -26,13 +26,6 @@ class client:
          response = self.recv_all(CRLF)
          print(codes.get_response_text(response))
          return int(response)
-    
-    '''def recv_map(self, crlf):
-        data = ''.encode()
-        while not data.endswith(crlf.encode()):
-            recived = self.s.recv(100)
-            data += recived
-        return data'''
             
     def start(self):
         try:
@@ -42,11 +35,9 @@ class client:
         except:
             print(codes.get_response_text(11))
             
-        self.s.send("2".encode() + CRLF.encode())
-        self.get_response()
-        # result = self.recv_map(CRLF)
-        # result = pickle.loads(result)
+        game = app.get_layout(self.s)
 
 if __name__ == '__main__':
     client = client()
     client.start()
+    

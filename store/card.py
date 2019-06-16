@@ -12,4 +12,5 @@ class Card:
             return self.word
         else:
             return ""
+ 
    
