@@ -87,3 +87,84 @@
 2019-06-20 02:07:47 - INFO - map for 2 level succesfuly created
 2019-06-20 02:08:53 - INFO -  Player quitting game
 2019-06-20 02:08:53 - INFO - client 127.0.0.1 disconnected
+2019-06-20 02:46:51 - INFO - cards sucessfully read
+2019-06-20 02:46:51 - INFO - Server started
+2019-06-20 02:46:51 - INFO - waiting for connections...
+2019-06-20 02:46:51 - INFO - Server: 0 players connected
+2019-06-20 02:54:08 - INFO - 127.0.0.1: 56661 connected
+2019-06-20 02:54:08 - ERROR - Server Not Avalible, [Errno 2] No such file or directory
+2019-06-20 02:55:51 - INFO - cards sucessfully read
+2019-06-20 02:55:51 - INFO - cards sucessfully read
+2019-06-20 02:55:51 - INFO - Server started
+2019-06-20 02:55:51 - INFO - Server started
+2019-06-20 02:55:51 - INFO - waiting for connections...
+2019-06-20 02:55:51 - INFO - waiting for connections...
+2019-06-20 02:55:51 - INFO - Server: 0 players connected
+2019-06-20 02:55:51 - INFO - Server: 0 players connected
+2019-06-20 02:56:47 - INFO - 127.0.0.1: 56782 connected
+2019-06-20 02:56:47 - INFO - 127.0.0.1: 56782 connected
+2019-06-20 02:56:47 - ERROR - Server Not Avalible, [Errno 2] No such file or directory
+2019-06-20 02:56:47 - ERROR - Server Not Avalible, [Errno 2] No such file or directory
+2019-06-20 02:57:53 - INFO - cards sucessfully read
+2019-06-20 02:57:53 - INFO - cards sucessfully read
+2019-06-20 02:57:53 - INFO - cards sucessfully read
+2019-06-20 02:57:53 - INFO - Server started
+2019-06-20 02:57:53 - INFO - Server started
+2019-06-20 02:57:53 - INFO - Server started
+2019-06-20 02:57:53 - INFO - waiting for connections...
+2019-06-20 02:57:53 - INFO - waiting for connections...
+2019-06-20 02:57:53 - INFO - waiting for connections...
+2019-06-20 02:57:53 - INFO - Server: 0 players connected
+2019-06-20 02:57:53 - INFO - Server: 0 players connected
+2019-06-20 02:57:53 - INFO - Server: 0 players connected
+2019-06-20 02:57:58 - INFO - 127.0.0.1: 56786 connected
+2019-06-20 02:57:58 - INFO - 127.0.0.1: 56786 connected
+2019-06-20 02:57:58 - INFO - 127.0.0.1: 56786 connected
+2019-06-20 02:57:58 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 02:57:58 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 02:57:58 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 02:57:58 - INFO - waiting for connections...
+2019-06-20 02:57:58 - INFO - waiting for connections...
+2019-06-20 02:57:58 - INFO - waiting for connections...
+2019-06-20 02:57:58 - INFO - Server: 1 players connected
+2019-06-20 02:57:58 - INFO - Server: 1 players connected
+2019-06-20 02:57:58 - INFO - Server: 1 players connected
+2019-06-20 02:58:05 - INFO - map for 1 level succesfuly created
+2019-06-20 02:58:05 - INFO - map for 1 level succesfuly created
+2019-06-20 02:58:05 - INFO - map for 1 level succesfuly created
+2019-06-20 02:58:17 - INFO - player quitting game
+2019-06-20 02:58:17 - INFO - player quitting game
+2019-06-20 02:58:17 - INFO - player quitting game
+2019-06-20 03:01:15 - INFO - cards sucessfully read
+2019-06-20 03:01:15 - INFO - Server started
+2019-06-20 03:01:15 - INFO - waiting for connections...
+2019-06-20 03:01:15 - INFO - Server: 0 players connected
+2019-06-20 03:01:21 - INFO - 127.0.0.1: 56893 connected
+2019-06-20 03:01:21 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 03:01:21 - INFO - waiting for connections...
+2019-06-20 03:01:21 - INFO - Server: 1 players connected
+2019-06-20 03:01:28 - INFO - map for 1 level succesfuly created
+2019-06-20 03:01:39 - INFO - map for 2 level succesfuly created
+2019-06-20 03:02:19 - INFO - player quitting game
+2019-06-20 03:02:19 - INFO - client 127.0.0.1 disconnected
+2019-06-20 03:02:38 - INFO - 127.0.0.1: 56898 connected
+2019-06-20 03:02:38 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 03:02:38 - INFO - waiting for connections...
+2019-06-20 03:02:38 - INFO - Server: 1 players connected
+2019-06-20 03:02:40 - INFO - map for 2 level succesfuly created
+2019-06-20 03:02:49 - INFO - player quitting game
+2019-06-20 03:02:49 - INFO - client 127.0.0.1 disconnected
+2019-06-20 03:03:16 - INFO - 127.0.0.1: 56901 connected
+2019-06-20 03:03:16 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 03:03:16 - INFO - waiting for connections...
+2019-06-20 03:03:16 - INFO - Server: 1 players connected
+2019-06-20 03:03:18 - INFO - map for 2 level succesfuly created
+2019-06-20 03:03:23 - INFO - player quitting game
+2019-06-20 03:03:23 - INFO - client 127.0.0.1 disconnected
+2019-06-20 03:03:45 - INFO - 127.0.0.1: 56904 connected
+2019-06-20 03:03:45 - INFO - Encrypted connection for 127.0.0.1 started
+2019-06-20 03:03:45 - INFO - waiting for connections...
+2019-06-20 03:03:45 - INFO - Server: 1 players connected
+2019-06-20 03:03:52 - INFO - map for 2 level succesfuly created
+2019-06-20 03:04:17 - INFO - map for 1 level succesfuly created
+2019-06-20 03:04:24 - INFO - client 127.0.0.1 disconnected

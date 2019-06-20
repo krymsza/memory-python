@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import socket
+import ssl
 import pickle
 import logging
 import store.options as options
@@ -18,7 +19,7 @@ class Server(object):
      def __init__(self, mapa):
          self.mapa = mapa
          try:
-            self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.s = socket.socket()
             self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.s.bind(('127.0.0.1', 5655))
          except:
@@ -26,7 +27,7 @@ class Server(object):
          logger.info('Server started')
     
      def run(self): 
-        self.s.listen(4) 
+        self.s.listen(4)
         try:
             self.accept_clients()
         except Exception as ex:
@@ -38,14 +39,28 @@ class Server(object):
     
      def accept_clients(self):
         while True:
-            logger.info('waiting for connections...')
-            logger.info('Server: %d players connected', len(self.clients))
-            (clientsocket, (ip, port)) = self.s.accept()
-            logger.info('%s: %d connected', ip, port)
-            t = Thread(target=ClientThread, args = (clientsocket, ip, port))
-            t.start()
-            self.clients.append(clientsocket)
-            
+            try:
+                logger.info('waiting for connections...')
+                logger.info('Server: %d players connected', len(self.clients))
+                (clientsocket, (ip, port)) = self.s.accept()
+                logger.info('%s: %d connected', ip, port)
+                try:
+                    #enctypted connection for client
+                    ssl_client = ssl.wrap_socket(clientsocket, server_side=True, 
+        					certfile="../../keys/server.cert", keyfile="../../keys/server.key", 
+                            ssl_version=ssl.PROTOCOL_TLSv1_2)
+                    #wrapped sock added
+                    logger.info('Encrypted connection for %s started', ip)
+                    t = Thread(target=ClientThread, args = (ssl_client, ip, port), daemon=True)
+                    t.start()
+                    self.clients.append(ssl_client)
+                except ssl.SSLError:
+                    pass
+				
+            except KeyboardInterrupt:
+                self.s.close()
+                logger.info("Finished.")
+
      @classmethod       
      def remove(self, client):
         self.clients.remove(client)
