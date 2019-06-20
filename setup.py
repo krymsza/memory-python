@@ -11,5 +11,5 @@ setup(
     long_description=readme,
     author='Kate Rymsza',
     author_email='rymszakasia@gmail.com',
-    packages=find_packages(exclude=('clientServer', 'components', 'store', 'utils'))
+    packages=find_packages(exclude=('clientServer', 'components', 'keys', 'store', 'utils'))
 )

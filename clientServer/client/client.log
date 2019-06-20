@@ -722,3 +722,173 @@
 2019-06-20 03:04:24 - INFO - quitting game
 2019-06-20 03:04:24 - INFO - quitting game
 2019-06-20 03:04:24 - INFO - quitting game
+2019-06-20 03:09:20 - INFO - encrypted socket created
+2019-06-20 03:09:20 - INFO - encrypted socket created
+2019-06-20 03:09:20 - INFO - encrypted socket created
+2019-06-20 03:09:20 - INFO - encrypted socket created
+2019-06-20 03:09:20 - INFO - encrypted socket created
+2019-06-20 03:09:20 - INFO - client socket created
+2019-06-20 03:09:20 - INFO - client socket created
+2019-06-20 03:09:20 - INFO - client socket created
+2019-06-20 03:09:20 - INFO - client socket created
+2019-06-20 03:09:20 - INFO - client socket created
+2019-06-20 03:09:20 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:09:20 - INFO - Server certificate OK.
+2019-06-20 03:09:20 - INFO - Server certificate OK.
+2019-06-20 03:09:20 - INFO - Server certificate OK.
+2019-06-20 03:09:20 - INFO - Server certificate OK.
+2019-06-20 03:09:20 - INFO - Server certificate OK.
+2019-06-20 03:09:20 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:09:20 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:09:20 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:09:20 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:09:20 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:09:20 - INFO - Client started
+2019-06-20 03:09:20 - INFO - Client started
+2019-06-20 03:09:20 - INFO - Client started
+2019-06-20 03:09:20 - INFO - Client started
+2019-06-20 03:09:20 - INFO - Client started
+2019-06-20 03:09:20 - INFO - *** app started
+2019-06-20 03:09:20 - INFO - *** app started
+2019-06-20 03:09:20 - INFO - *** app started
+2019-06-20 03:09:20 - INFO - *** app started
+2019-06-20 03:09:20 - INFO - *** app started
+2019-06-20 03:09:25 - INFO - Success
+2019-06-20 03:09:25 - INFO - Success
+2019-06-20 03:09:25 - INFO - Success
+2019-06-20 03:09:25 - INFO - Success
+2019-06-20 03:09:25 - INFO - Success
+2019-06-20 03:09:28 - INFO - card 0 , 4 comparing
+2019-06-20 03:09:28 - INFO - card 0 , 4 comparing
+2019-06-20 03:09:28 - INFO - card 0 , 4 comparing
+2019-06-20 03:09:28 - INFO - card 0 , 4 comparing
+2019-06-20 03:09:28 - INFO - card 0 , 4 comparing
+2019-06-20 03:09:28 - INFO - Try again
+2019-06-20 03:09:28 - INFO - Try again
+2019-06-20 03:09:28 - INFO - Try again
+2019-06-20 03:09:28 - INFO - Try again
+2019-06-20 03:09:28 - INFO - Try again
+2019-06-20 03:09:28 - INFO - these cards are different
+2019-06-20 03:09:28 - INFO - these cards are different
+2019-06-20 03:09:28 - INFO - these cards are different
+2019-06-20 03:09:28 - INFO - these cards are different
+2019-06-20 03:09:28 - INFO - these cards are different
+2019-06-20 03:12:04 - INFO - encrypted socket created
+2019-06-20 03:12:04 - INFO - client socket created
+2019-06-20 03:12:04 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:12:04 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:12:04 - INFO - Server certificate OK.
+2019-06-20 03:12:04 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:12:04 - INFO - Client started
+2019-06-20 03:13:01 - INFO - encrypted socket created
+2019-06-20 03:13:01 - INFO - encrypted socket created
+2019-06-20 03:13:01 - INFO - client socket created
+2019-06-20 03:13:01 - INFO - client socket created
+2019-06-20 03:13:01 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:01 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:01 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:01 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:01 - INFO - Server certificate OK.
+2019-06-20 03:13:01 - INFO - Server certificate OK.
+2019-06-20 03:13:01 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:13:01 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:13:01 - INFO - Client started
+2019-06-20 03:13:01 - INFO - Client started
+2019-06-20 03:13:01 - INFO - *** app started
+2019-06-20 03:13:01 - INFO - *** app started
+2019-06-20 03:13:47 - INFO - encrypted socket created
+2019-06-20 03:13:47 - INFO - encrypted socket created
+2019-06-20 03:13:47 - INFO - encrypted socket created
+2019-06-20 03:13:47 - INFO - client socket created
+2019-06-20 03:13:47 - INFO - client socket created
+2019-06-20 03:13:47 - INFO - client socket created
+2019-06-20 03:13:47 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - INFO - certificate: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - DEBUG - CERT: {'subject': ((('commonName', 'server'),),), 'issuer': ((('commonName', 'server'),),), 'version': 3, 'serialNumber': 'ABCCDEF32F58842D', 'notBefore': 'Jun 20 00:21:47 2019 GMT', 'notAfter': 'Jun 17 00:21:47 2029 GMT'}
+2019-06-20 03:13:47 - INFO - Server certificate OK.
+2019-06-20 03:13:47 - INFO - Server certificate OK.
+2019-06-20 03:13:47 - INFO - Server certificate OK.
+2019-06-20 03:13:47 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:13:47 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:13:47 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 03:13:47 - INFO - Client started
+2019-06-20 03:13:47 - INFO - Client started
+2019-06-20 03:13:47 - INFO - Client started
+2019-06-20 03:13:47 - INFO - *** app started
+2019-06-20 03:13:47 - INFO - *** app started
+2019-06-20 03:13:47 - INFO - *** app started
+2019-06-20 03:13:50 - INFO - Success
+2019-06-20 03:13:50 - INFO - Success
+2019-06-20 03:13:50 - INFO - Success
+2019-06-20 03:13:52 - INFO - card 0 , 4 comparing
+2019-06-20 03:13:52 - INFO - card 0 , 4 comparing
+2019-06-20 03:13:52 - INFO - card 0 , 4 comparing
+2019-06-20 03:13:52 - INFO - Try again
+2019-06-20 03:13:52 - INFO - Try again
+2019-06-20 03:13:52 - INFO - Try again
+2019-06-20 03:13:52 - INFO - these cards are different
+2019-06-20 03:13:52 - INFO - these cards are different
+2019-06-20 03:13:52 - INFO - these cards are different
+2019-06-20 03:13:53 - INFO - card 3 , 1 comparing
+2019-06-20 03:13:53 - INFO - card 3 , 1 comparing
+2019-06-20 03:13:53 - INFO - card 3 , 1 comparing
+2019-06-20 03:13:53 - INFO - Try again
+2019-06-20 03:13:53 - INFO - Try again
+2019-06-20 03:13:53 - INFO - Try again
+2019-06-20 03:13:53 - INFO - these cards are different
+2019-06-20 03:13:53 - INFO - these cards are different
+2019-06-20 03:13:53 - INFO - these cards are different
+2019-06-20 03:13:56 - INFO - card 4 , 1 comparing
+2019-06-20 03:13:56 - INFO - card 4 , 1 comparing
+2019-06-20 03:13:56 - INFO - card 4 , 1 comparing
+2019-06-20 03:13:56 - INFO - It's a pair!
+2019-06-20 03:13:56 - INFO - It's a pair!
+2019-06-20 03:13:56 - INFO - It's a pair!
+2019-06-20 03:13:56 - INFO - these cards are match
+2019-06-20 03:13:56 - INFO - these cards are match
+2019-06-20 03:13:56 - INFO - these cards are match
+2019-06-20 03:13:57 - INFO - card 0 , 3 comparing
+2019-06-20 03:13:57 - INFO - card 0 , 3 comparing
+2019-06-20 03:13:57 - INFO - card 0 , 3 comparing
+2019-06-20 03:13:57 - INFO - Try again
+2019-06-20 03:13:57 - INFO - Try again
+2019-06-20 03:13:57 - INFO - Try again
+2019-06-20 03:13:57 - INFO - these cards are different
+2019-06-20 03:13:57 - INFO - these cards are different
+2019-06-20 03:13:57 - INFO - these cards are different
+2019-06-20 03:13:58 - INFO - card 2 , 0 comparing
+2019-06-20 03:13:58 - INFO - card 2 , 0 comparing
+2019-06-20 03:13:58 - INFO - card 2 , 0 comparing
+2019-06-20 03:13:58 - INFO - It's a pair!
+2019-06-20 03:13:58 - INFO - It's a pair!
+2019-06-20 03:13:58 - INFO - It's a pair!
+2019-06-20 03:13:58 - INFO - these cards are match
+2019-06-20 03:13:58 - INFO - these cards are match
+2019-06-20 03:13:58 - INFO - these cards are match
+2019-06-20 03:14:00 - INFO - card 3 , 5 comparing
+2019-06-20 03:14:00 - INFO - card 3 , 5 comparing
+2019-06-20 03:14:00 - INFO - card 3 , 5 comparing
+2019-06-20 03:14:00 - INFO - Game Over
+2019-06-20 03:14:00 - INFO - Game Over
+2019-06-20 03:14:00 - INFO - Game Over
+2019-06-20 03:14:00 - INFO - Game is over
+2019-06-20 03:14:00 - INFO - Game is over
+2019-06-20 03:14:00 - INFO - Game is over
+2019-06-20 03:14:01 - INFO - starting new game
+2019-06-20 03:14:01 - INFO - starting new game
+2019-06-20 03:14:01 - INFO - starting new game
+2019-06-20 03:14:01 - INFO - Memorsy! Hi There :)
+2019-06-20 03:14:01 - INFO - Memorsy! Hi There :)
+2019-06-20 03:14:01 - INFO - Memorsy! Hi There :)

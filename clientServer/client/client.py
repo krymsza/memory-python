@@ -52,7 +52,7 @@ class client:
         except:
             logger.error(' %s', codes.get_response_text(11))
             
-        app.get_layout(self.ssl_conn)
+        app.get_layout(self, self.ssl_conn)
 
 
 if __name__ == '__main__':
