@@ -64,6 +64,10 @@ class Server(object):
      @classmethod       
      def remove(self, client):
         self.clients.remove(client)
+     
+     @classmethod 
+     def close_server(self):
+         self.s.close()
          
 class ClientThread(Thread):
 
@@ -77,13 +81,7 @@ class ClientThread(Thread):
         data = ""
         while not data.endswith(crlf):
             data += conn.recv(1).decode()
-        return data
-
-    def recv_int(self, crlf, conn):
-        data = b''
-        while not data.endswith(crlf.encode()):
-            data = data + conn.recv(1)
-        return data
+        return data[:-2]
     
     def recv_array(self, conn):
         data = conn.recv(1)
@@ -93,13 +91,17 @@ class ClientThread(Thread):
 
     def set_game(self, client):
         client.send(codes.get_code("Available").encode() + CRLF.encode())
-        response = self.recv_int(CRLF, client)
+        try:
+            response = self.recv_all(CRLF, client) #set level response
+        except:
+            logger.warning('Client %s disconnected', self.ip)
+            return
 
-        if response[:-2].decode() == "QuitGame" :
+        if response == "QuitGame" :
             self.endGame(client)
             logger.info('player %s quitting game', self.ip)
         else:
-            level = int(int_from_bytes(response[:1]))
+            level = int(int_from_bytes(response.encode()))
             cards_map = mapa.create_map(level) # normal array
             client.send(codes.get_code("Success").encode() + CRLF.encode())
     
@@ -109,51 +111,55 @@ class ClientThread(Thread):
         self.card_sent = 0
         self.solved_pairs = 0
         while True:
-            ans = self.recv_all(CRLF, client)
-            if(ans[:-2] == "QuitGame"):
-                logger.info('player quitting game' )
-                self.endGame(client)
-                break
-            else:
-                client.send(cards_map[int(ans)].word.encode() + CRLF.encode()) 
-                self.card_sent += 1
-                if self.card_sent == 2:
-                    self.card_sent = 0
-                    cards_to_check = self.recv_array(client)
-                    
-                    if cards_map[cards_to_check[0]].word == cards_map[cards_to_check[1]].word:
-                        self.solved_pairs += 1
-                        if self.solved_pairs == options.levels[level]:
-                            client.send(codes.get_code("GameOver").encode() + CRLF.encode())
-                            next_game = int(self.recv_all(CRLF, client))
-                            if next_game == int(codes.get_code("NewGame")):
-                                #new game
-                                self.set_game(client)
-                                break
+            try:
+                answer = self.recv_all(CRLF, client)
+                if answer == "QuitGame":
+                    logger.info('player quitting game' )
+                    self.endGame(client)
+                    break
+                else:
+                    client.send(cards_map[int(answer)].word.encode() + CRLF.encode()) 
+                    self.card_sent += 1
+                    if self.card_sent == 2:
+                        self.card_sent = 0
+                        cards_to_check = self.recv_array(client)
+                        
+                        if cards_map[cards_to_check[0]].word == cards_map[cards_to_check[1]].word:
+                            self.solved_pairs += 1
+                            if self.solved_pairs == options.levels[level]:
+                                client.send(codes.get_code("GameOver").encode() + CRLF.encode())
+                                next_game = int(self.recv_all(CRLF, client))
+                                if next_game == int(codes.get_code("NewGame")):
+                                    #new game
+                                    self.set_game(client)
+                                    break
+                                else:
+                                    #end program for client
+                                    self.endGame(client)
+                                    break
                             else:
-                                #end program for client
-                                self.endGame(client)
-                                break
+                                client.send(codes.get_code("PairFound").encode() + CRLF.encode())
                         else:
-                            client.send(codes.get_code("PairFound").encode() + CRLF.encode())
-                    else:
-                        client.send(codes.get_code("PairNotFound").encode() + CRLF.encode())
+                            client.send(codes.get_code("PairNotFound").encode() + CRLF.encode())
                 
-                pass
+            except:
+                logger.warning('Client %s connection dropped', self.ip)
+                break
     
     def broadcast(self, message):
         for client in self.clients:
             client.send(message)
     
     def endGame(self, client):
+        logger.info('client %s disconnected', self.ip)
         Server.remove(client)
         client.close()
-        logger.info('client %s disconnected', self.ip)
+        
             
 if __name__ == '__main__':
     
     logger = logging.getLogger('server_logger')
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
     
     fh = logging.FileHandler('server.log')
     fh.setLevel(logging.DEBUG)
