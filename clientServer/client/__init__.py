@@ -1,10 +1,10 @@
 #
-'''
 import logging
-logger = logging.getLogger('app_logger')
+'''
+logger = logging.getLogger('client_logger')
 logger.setLevel(logging.DEBUG)
 
-fh = logging.FileHandler('app.log')
+fh = logging.FileHandler('client.log')
 fh.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler()

@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import tkinter as tk
+from tkinter import messagebox
 import pickle
+import logging
 import store.codes as codes
 import store.options as options 
 import store.card
-import store
 
 EOF = '\0'
 CRLF = '\r\n'
+logger = logging.getLogger('client_logger')
 
 def int_to_bytes(x):
     return x.to_bytes((x.bit_length() + 7) // 8, 'big')
@@ -24,7 +26,7 @@ class App:
         self.pairs = 0
         self.found = False
         self.root.title("Memorsy!")
-        tk.Frame(self.root, width=500, height=450).pack()
+        tk.Frame(self.root, width=400, height=450).pack()
         self.setLevel()
     
     def reset(self):
@@ -41,7 +43,7 @@ class App:
     
     def get_response(self):
          response = self.recv_all(CRLF)
-         print(codes.get_response_text(response))
+         logger.info('%s', codes.get_response_text(response))
          return int(response)
      
     def get_card_content(self, id):
@@ -67,38 +69,35 @@ class App:
             self.radiobuttons[i].pack(anchor = tk.W)
 
     def send(self):
-        print(' sending level' )
         self.radiobuttons[0].pack_forget()
         self.radiobuttons[1].pack_forget()
         
         self.level = self.levelVal.get()
-        self.s.send(int_to_bytes(self.level))
+        # sending int 
+        self.s.send(int_to_bytes(self.level) + CRLF.encode())
         is_map_created = self.get_response()
-        print(' is map created: ', is_map_created)
         if(is_map_created == int(codes.get_code('Success'))):
             self.start()
             
     def create_cards(self):
-        print('creating empty cards')
         self.cards_layout = []
         for i in range(0, options.levels[self.level]*2):
             self.cards_layout.append(store.card.Card("", False, i))
         
     def start(self):
-        print('starting game')
-        self.sideLen = options.levels[self.level]
+        self.sideLen = 2  #options.levels[self.level]
         self.create_cards()
         self.print_board()
 
     #plansza
     def print_board(self):
-        print(' print board')
         xvar=10
         yvar=70
         self.buttons = []
         cards_index = 0
+        print('range: ', options.levels[self.level], 'side len: ', self.sideLen)
         for i in range(self.sideLen):
-            for j in range(options.levels[self.level]-1):
+            for j in range(options.levels[self.level]):
 
                 cmd = lambda index = cards_index: self.click(index)
                 self.buttons.append(tk.Button(
@@ -107,6 +106,7 @@ class App:
                         text=self.cards_layout[cards_index].word,
                         width="6"
                         ))
+                print(' card index: ', cards_index)
                 self.buttons[cards_index].place(x=xvar, y=yvar)
                 
                 xvar=xvar+80
@@ -121,7 +121,6 @@ class App:
             self.radiobuttons[i].pack_forget()
 
     def click(self,index):
-        print('card clicked: ', index)
         if self.cards_layout[index].up == False:
 
             # turn card on
@@ -155,19 +154,21 @@ class App:
             text = self.var.get()
             self.var.set("Weź inna kartę")
 
-
     def compare(self):
         self.attempts += 1
         # send to server two ids
+        logger.info('card %d , %d comparing',self.cards_to_compare[0], self.cards_to_compare[1])
         data = pickle.dumps(self.cards_to_compare)
         self.s.send(data + CRLF.encode())
         result = self.get_response()
         if result == int(codes.get_code('PairFound')):
+            logger.info('these cards are match')
             self.cards_layout[self.cards_to_compare[0]].up = True
             self.cards_layout[self.cards_to_compare[1]].up = True
             text = self.var.get()
             self.found = True
         elif result == int(codes.get_code('GameOver')):
+            logger.info('Game is over')
             text = self.var.get()
             self.var.set("Gra skończona w " + str(self.attempts) + " próbach.")
             self.newGameButton = tk.Button(
@@ -183,12 +184,14 @@ class App:
             self.newGameButton.pack()
             self.endGameButton.pack()
         else:
+            logger.info('these cards are different')
             self.found = False
             self.cards_layout[self.cards_to_compare[0]].up = False
             self.cards_layout[self.cards_to_compare[1]].up = False         
 
 
     def newGame(self):
+        logger.info('starting new game')
         self.reset()
         self.newGameButton.pack_forget()
         self.endGameButton.pack_forget()
@@ -209,19 +212,28 @@ class App:
             self.text = False
             self.setLevel()
         else:
-            print(codes.get_response_text(50))
+            logger.error('%s', codes.get_response_text(50))
             self.s.close()
     
     def endGame(self):
+        logger.info('quitting game')
         code = codes.get_code('EndGame')
         self.s.send(code.encode() + CRLF.encode())
         self.quit()
-
+        
     def quit(self):
         self.root.destroy()
-    
+        self.s.close()
+
+    def on_closing(self):
+        if messagebox.askokcancel("Quit", "Do you want to quit?"):
+            self.root.destroy()
+            self.s.send(('QuitGame').encode() + CRLF.encode()) #TODO: change this to some high code
+            self.s.close()  
+
 def get_layout(s):
-    print('*** app started')
+    logger.info('*** app started')   
     root = tk.Tk()
-    App(root, s)
+    app = App(root, s)
+    root.protocol("WM_DELETE_WINDOW",app.on_closing)
     root.mainloop()

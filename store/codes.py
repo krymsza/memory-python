@@ -7,11 +7,12 @@ codes=[
     ("11", "NotAvailable"),
     ("14", "NewGame"),
     ("17", "EndGame"),
+    ("19", "QuitGame"),
 	("20", "Success"),
 	("22", "PairFound"),    
 	("24", "PairNotFound"),
     ("27", "GameOver"),
-	("44", "WrongRequest"),
+	("44", "FileNotFound"),
 	("50", "ServerError"),
 	("80", "Closed")
 ]
@@ -21,10 +22,12 @@ responses={
     11: "Server Not Avalible",
     14: "Nowa gra",
     17: "Koniec",
+    19: "Wychodzenie z gry",
     20: "Success",
     22: "It's a pair!",
     24: "Try again",
     27: "Game Over",
+    44: "Could not connect to database",
 	50: "Server error",
 	80: "Goodbye :)"
 }

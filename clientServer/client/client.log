@@ -1,0 +1,253 @@
+2019-06-20 01:06:31 - INFO - client socket created
+2019-06-20 01:06:31 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:06:31 - INFO - Client started
+2019-06-20 01:06:31 - INFO - *** app started
+2019-06-20 01:06:35 - INFO - Success
+2019-06-20 01:06:37 - INFO - card 4 , 5 comparing
+2019-06-20 01:06:37 - INFO - Try again
+2019-06-20 01:06:37 - INFO - these cards are different
+2019-06-20 01:37:31 - INFO - client socket created
+2019-06-20 01:37:31 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:37:31 - INFO - Client started
+2019-06-20 01:37:31 - INFO - *** app started
+2019-06-20 01:49:56 - INFO - client socket created
+2019-06-20 01:49:56 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:49:56 - INFO - Client started
+2019-06-20 01:49:56 - INFO - *** app started
+2019-06-20 01:50:03 - INFO - Success
+2019-06-20 01:52:19 - INFO - client socket created
+2019-06-20 01:52:19 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:52:19 - INFO - Client started
+2019-06-20 01:52:19 - INFO - *** app started
+2019-06-20 01:52:24 - INFO - Success
+2019-06-20 01:52:28 - INFO - card 0 , 1 comparing
+2019-06-20 01:52:28 - INFO - Try again
+2019-06-20 01:52:28 - INFO - these cards are different
+2019-06-20 01:52:30 - INFO - card 3 , 2 comparing
+2019-06-20 01:52:30 - INFO - It's a pair!
+2019-06-20 01:52:30 - INFO - these cards are match
+2019-06-20 01:52:32 - INFO - card 4 , 1 comparing
+2019-06-20 01:52:32 - INFO - Try again
+2019-06-20 01:52:32 - INFO - these cards are different
+2019-06-20 01:52:34 - INFO - card 0 , 4 comparing
+2019-06-20 01:52:34 - INFO - It's a pair!
+2019-06-20 01:52:34 - INFO - these cards are match
+2019-06-20 01:52:35 - INFO - card 5 , 1 comparing
+2019-06-20 01:52:35 - INFO - Game Over
+2019-06-20 01:52:35 - INFO - Game is over
+2019-06-20 01:52:47 - INFO - starting new game
+2019-06-20 01:52:47 - INFO - Memorsy! Hi There :)
+2019-06-20 01:52:50 - INFO - Success
+2019-06-20 01:56:50 - INFO - client socket created
+2019-06-20 01:56:50 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:56:50 - INFO - Client started
+2019-06-20 01:56:50 - INFO - *** app started
+2019-06-20 01:56:58 - INFO - Success
+2019-06-20 01:57:01 - INFO - card 1 , 0 comparing
+2019-06-20 01:57:01 - INFO - Try again
+2019-06-20 01:57:01 - INFO - these cards are different
+2019-06-20 01:57:03 - INFO - card 2 , 3 comparing
+2019-06-20 01:57:03 - INFO - Try again
+2019-06-20 01:57:03 - INFO - these cards are different
+2019-06-20 01:57:05 - INFO - card 1 , 0 comparing
+2019-06-20 01:57:05 - INFO - Try again
+2019-06-20 01:57:05 - INFO - these cards are different
+2019-06-20 01:57:06 - INFO - card 3 , 2 comparing
+2019-06-20 01:57:06 - INFO - Try again
+2019-06-20 01:57:06 - INFO - these cards are different
+2019-06-20 01:57:09 - INFO - card 0 , 1 comparing
+2019-06-20 01:57:09 - INFO - Try again
+2019-06-20 01:57:09 - INFO - these cards are different
+2019-06-20 01:58:14 - INFO - client socket created
+2019-06-20 01:58:14 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 01:58:14 - INFO - Client started
+2019-06-20 01:58:14 - INFO - *** app started
+2019-06-20 01:58:21 - INFO - Success
+2019-06-20 01:58:31 - INFO - card 0 , 1 comparing
+2019-06-20 01:58:31 - INFO - Try again
+2019-06-20 01:58:31 - INFO - these cards are different
+2019-06-20 01:58:33 - INFO - card 2 , 0 comparing
+2019-06-20 01:58:33 - INFO - Try again
+2019-06-20 01:58:33 - INFO - these cards are different
+2019-06-20 01:58:35 - INFO - card 1 , 2 comparing
+2019-06-20 01:58:35 - INFO - It's a pair!
+2019-06-20 01:58:35 - INFO - these cards are match
+2019-06-20 01:58:36 - INFO - card 5 , 4 comparing
+2019-06-20 01:58:36 - INFO - It's a pair!
+2019-06-20 01:58:36 - INFO - these cards are match
+2019-06-20 01:58:37 - INFO - card 3 , 0 comparing
+2019-06-20 01:58:37 - INFO - Game Over
+2019-06-20 01:58:37 - INFO - Game is over
+2019-06-20 01:58:40 - INFO - starting new game
+2019-06-20 01:58:40 - INFO - Memorsy! Hi There :)
+2019-06-20 01:58:41 - INFO - Success
+2019-06-20 01:59:28 - INFO - card 4 , 10 comparing
+2019-06-20 01:59:28 - INFO - Try again
+2019-06-20 01:59:28 - INFO - these cards are different
+2019-06-20 01:59:30 - INFO - card 9 , 4 comparing
+2019-06-20 01:59:30 - INFO - It's a pair!
+2019-06-20 01:59:30 - INFO - these cards are match
+2019-06-20 01:59:31 - INFO - card 3 , 10 comparing
+2019-06-20 01:59:31 - INFO - Try again
+2019-06-20 01:59:31 - INFO - these cards are different
+2019-06-20 01:59:32 - INFO - card 8 , 2 comparing
+2019-06-20 01:59:32 - INFO - Try again
+2019-06-20 01:59:32 - INFO - these cards are different
+2019-06-20 01:59:35 - INFO - card 7 , 2 comparing
+2019-06-20 01:59:35 - INFO - Try again
+2019-06-20 01:59:35 - INFO - these cards are different
+2019-06-20 01:59:36 - INFO - card 8 , 7 comparing
+2019-06-20 01:59:36 - INFO - It's a pair!
+2019-06-20 01:59:36 - INFO - these cards are match
+2019-06-20 01:59:37 - INFO - card 1 , 6 comparing
+2019-06-20 01:59:37 - INFO - Try again
+2019-06-20 01:59:37 - INFO - these cards are different
+2019-06-20 01:59:39 - INFO - card 2 , 3 comparing
+2019-06-20 01:59:39 - INFO - Try again
+2019-06-20 01:59:39 - INFO - these cards are different
+2019-06-20 01:59:42 - INFO - card 10 , 1 comparing
+2019-06-20 01:59:42 - INFO - Try again
+2019-06-20 01:59:42 - INFO - these cards are different
+2019-06-20 01:59:43 - INFO - card 6 , 2 comparing
+2019-06-20 01:59:43 - INFO - Try again
+2019-06-20 01:59:43 - INFO - these cards are different
+2019-06-20 01:59:45 - INFO - card 0 , 1 comparing
+2019-06-20 01:59:45 - INFO - It's a pair!
+2019-06-20 01:59:45 - INFO - these cards are match
+2019-06-20 01:59:46 - INFO - card 6 , 2 comparing
+2019-06-20 01:59:46 - INFO - Try again
+2019-06-20 01:59:46 - INFO - these cards are different
+2019-06-20 01:59:48 - INFO - card 3 , 6 comparing
+2019-06-20 01:59:48 - INFO - It's a pair!
+2019-06-20 01:59:48 - INFO - these cards are match
+2019-06-20 01:59:50 - INFO - card 2 , 10 comparing
+2019-06-20 01:59:50 - INFO - Try again
+2019-06-20 01:59:50 - INFO - these cards are different
+2019-06-20 02:03:19 - INFO - client socket created
+2019-06-20 02:03:19 - INFO - client socket created
+2019-06-20 02:03:19 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 02:03:19 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 02:03:19 - INFO - Client started
+2019-06-20 02:03:19 - INFO - Client started
+2019-06-20 02:03:19 - INFO - *** app started
+2019-06-20 02:03:19 - INFO - *** app started
+2019-06-20 02:03:21 - INFO - Success
+2019-06-20 02:03:21 - INFO - Success
+2019-06-20 02:05:30 - INFO - client socket created
+2019-06-20 02:05:30 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 02:05:30 - INFO - Client started
+2019-06-20 02:05:30 - INFO - *** app started
+2019-06-20 02:05:34 - INFO - Success
+2019-06-20 02:05:47 - INFO - card 0 , 1 comparing
+2019-06-20 02:05:47 - INFO - Try again
+2019-06-20 02:05:47 - INFO - these cards are different
+2019-06-20 02:05:49 - INFO - card 2 , 1 comparing
+2019-06-20 02:05:49 - INFO - It's a pair!
+2019-06-20 02:05:49 - INFO - these cards are match
+2019-06-20 02:05:50 - INFO - card 4 , 5 comparing
+2019-06-20 02:05:50 - INFO - Try again
+2019-06-20 02:05:50 - INFO - these cards are different
+2019-06-20 02:05:51 - INFO - card 0 , 4 comparing
+2019-06-20 02:05:51 - INFO - It's a pair!
+2019-06-20 02:05:51 - INFO - these cards are match
+2019-06-20 02:05:52 - INFO - card 3 , 5 comparing
+2019-06-20 02:05:52 - INFO - Game Over
+2019-06-20 02:05:52 - INFO - Game is over
+2019-06-20 02:05:54 - INFO - starting new game
+2019-06-20 02:05:54 - INFO - Memorsy! Hi There :)
+2019-06-20 02:05:56 - INFO - Success
+2019-06-20 02:07:22 - INFO - client socket created
+2019-06-20 02:07:22 - INFO - connented: Memorsy! Hi There :)
+2019-06-20 02:07:22 - INFO - Client started
+2019-06-20 02:07:22 - INFO - *** app started
+2019-06-20 02:07:32 - INFO - Success
+2019-06-20 02:07:39 - INFO - card 0 , 1 comparing
+2019-06-20 02:07:39 - INFO - Try again
+2019-06-20 02:07:39 - INFO - these cards are different
+2019-06-20 02:07:41 - INFO - card 2 , 4 comparing
+2019-06-20 02:07:41 - INFO - It's a pair!
+2019-06-20 02:07:41 - INFO - these cards are match
+2019-06-20 02:07:43 - INFO - card 1 , 3 comparing
+2019-06-20 02:07:43 - INFO - It's a pair!
+2019-06-20 02:07:43 - INFO - these cards are match
+2019-06-20 02:07:44 - INFO - card 0 , 5 comparing
+2019-06-20 02:07:44 - INFO - Game Over
+2019-06-20 02:07:44 - INFO - Game is over
+2019-06-20 02:07:46 - INFO - starting new game
+2019-06-20 02:07:46 - INFO - Memorsy! Hi There :)
+2019-06-20 02:07:47 - INFO - Success
+2019-06-20 02:07:50 - INFO - card 0 , 1 comparing
+2019-06-20 02:07:50 - INFO - Try again
+2019-06-20 02:07:50 - INFO - these cards are different
+2019-06-20 02:07:53 - INFO - card 7 , 2 comparing
+2019-06-20 02:07:53 - INFO - Try again
+2019-06-20 02:07:53 - INFO - these cards are different
+2019-06-20 02:07:55 - INFO - card 8 , 7 comparing
+2019-06-20 02:07:55 - INFO - Try again
+2019-06-20 02:07:55 - INFO - these cards are different
+2019-06-20 02:07:57 - INFO - card 6 , 7 comparing
+2019-06-20 02:07:57 - INFO - Try again
+2019-06-20 02:07:57 - INFO - these cards are different
+2019-06-20 02:07:59 - INFO - card 2 , 1 comparing
+2019-06-20 02:07:59 - INFO - Try again
+2019-06-20 02:07:59 - INFO - these cards are different
+2019-06-20 02:08:01 - INFO - card 7 , 8 comparing
+2019-06-20 02:08:01 - INFO - Try again
+2019-06-20 02:08:01 - INFO - these cards are different
+2019-06-20 02:08:03 - INFO - card 1 , 8 comparing
+2019-06-20 02:08:03 - INFO - It's a pair!
+2019-06-20 02:08:03 - INFO - these cards are match
+2019-06-20 02:08:04 - INFO - card 3 , 9 comparing
+2019-06-20 02:08:04 - INFO - Try again
+2019-06-20 02:08:04 - INFO - these cards are different
+2019-06-20 02:08:06 - INFO - card 7 , 6 comparing
+2019-06-20 02:08:06 - INFO - Try again
+2019-06-20 02:08:06 - INFO - these cards are different
+2019-06-20 02:08:08 - INFO - card 2 , 9 comparing
+2019-06-20 02:08:08 - INFO - Try again
+2019-06-20 02:08:08 - INFO - these cards are different
+2019-06-20 02:08:09 - INFO - card 4 , 10 comparing
+2019-06-20 02:08:09 - INFO - Try again
+2019-06-20 02:08:09 - INFO - these cards are different
+2019-06-20 02:08:11 - INFO - card 9 , 2 comparing
+2019-06-20 02:08:11 - INFO - Try again
+2019-06-20 02:08:11 - INFO - these cards are different
+2019-06-20 02:08:13 - INFO - card 3 , 7 comparing
+2019-06-20 02:08:13 - INFO - Try again
+2019-06-20 02:08:13 - INFO - these cards are different
+2019-06-20 02:08:14 - INFO - card 9 , 4 comparing
+2019-06-20 02:08:14 - INFO - Try again
+2019-06-20 02:08:14 - INFO - these cards are different
+2019-06-20 02:08:15 - INFO - card 7 , 2 comparing
+2019-06-20 02:08:15 - INFO - Try again
+2019-06-20 02:08:15 - INFO - these cards are different
+2019-06-20 02:08:19 - INFO - card 7 , 4 comparing
+2019-06-20 02:08:19 - INFO - It's a pair!
+2019-06-20 02:08:19 - INFO - these cards are match
+2019-06-20 02:08:24 - INFO - card 6 , 2 comparing
+2019-06-20 02:08:24 - INFO - Try again
+2019-06-20 02:08:24 - INFO - these cards are different
+2019-06-20 02:08:25 - INFO - card 9 , 10 comparing
+2019-06-20 02:08:25 - INFO - Try again
+2019-06-20 02:08:25 - INFO - these cards are different
+2019-06-20 02:08:28 - INFO - card 0 , 2 comparing
+2019-06-20 02:08:28 - INFO - Try again
+2019-06-20 02:08:28 - INFO - these cards are different
+2019-06-20 02:08:29 - INFO - card 6 , 0 comparing
+2019-06-20 02:08:29 - INFO - It's a pair!
+2019-06-20 02:08:29 - INFO - these cards are match
+2019-06-20 02:08:31 - INFO - card 3 , 9 comparing
+2019-06-20 02:08:31 - INFO - Try again
+2019-06-20 02:08:31 - INFO - these cards are different
+2019-06-20 02:08:32 - INFO - card 2 , 10 comparing
+2019-06-20 02:08:32 - INFO - Try again
+2019-06-20 02:08:32 - INFO - these cards are different
+2019-06-20 02:08:34 - INFO - card 9 , 3 comparing
+2019-06-20 02:08:34 - INFO - Try again
+2019-06-20 02:08:34 - INFO - these cards are different
+2019-06-20 02:08:37 - INFO - card 10 , 3 comparing
+2019-06-20 02:08:37 - INFO - It's a pair!
+2019-06-20 02:08:37 - INFO - these cards are match
+2019-06-20 02:08:38 - INFO - card 9 , 2 comparing
+2019-06-20 02:08:38 - INFO - Try again
+2019-06-20 02:08:38 - INFO - these cards are different

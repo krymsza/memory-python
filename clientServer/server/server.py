@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import socket
-import random
 import pickle
+import logging
 import store.options as options
 from threading import Thread
 import store.codes as codes
@@ -22,15 +22,15 @@ class Server(object):
             self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.s.bind(('127.0.0.1', 5655))
          except:
-            print(codes.get_response_text(11))
-         print('Server running')
+            logger.error(' %s', codes.get_response_text(11))
+         logger.info('Server started')
     
      def run(self): 
         self.s.listen(4) 
         try:
             self.accept_clients()
         except Exception as ex:
-            print(codes.get_response_text(11), ex)
+            logger.error('%s, %s', codes.get_response_text(11), ex)
         finally:
             for client in self.clients:
                 client.close()
@@ -38,13 +38,13 @@ class Server(object):
     
      def accept_clients(self):
         while True:
-            print(' within for connections')
-            print('clients count: ', len(self.clients))
+            logger.info('waiting for connections...')
+            logger.info('Server: %d players connected', len(self.clients))
             (clientsocket, (ip, port)) = self.s.accept()
+            logger.info('%s: %d connected', ip, port)
             t = Thread(target=ClientThread, args = (clientsocket, ip, port))
             t.start()
             self.clients.append(clientsocket)
-            #t.join()
             
      @classmethod       
      def remove(self, client):
@@ -57,7 +57,7 @@ class ClientThread(Thread):
         self.ip = ip 
         self.port = port
         self.set_game(client)
-                 
+        
     def recv_all(self, crlf, conn):
         data = ""
         while not data.endswith(crlf):
@@ -79,16 +79,13 @@ class ClientThread(Thread):
     def set_game(self, client):
         client.send(codes.get_code("Available").encode() + CRLF.encode())
         response = self.recv_int(CRLF, client)
-        
+
         if response[:-2].decode() == "QuitGame" :
             self.endGame(client)
-            print('player quitting game')
+            logger.info('player %s quitting game', self.ip)
         else:
             level = int(int_from_bytes(response[:1]))
             cards_map = mapa.create_map(level) # normal array
-            random.shuffle(cards_map)
-            for i in range (0, 6):
-                print(cards_map[i].pos, " : ", cards_map[i].word)
             client.send(codes.get_code("Success").encode() + CRLF.encode())
     
             self.handle_game(client, cards_map, level)
@@ -97,10 +94,9 @@ class ClientThread(Thread):
         self.card_sent = 0
         self.solved_pairs = 0
         while True:
-            print('waiting for answer...')
             ans = self.recv_all(CRLF, client)
             if(ans[:-2] == "QuitGame"):
-                print(' Palyer Quittting game' )
+                logger.info('player quitting game' )
                 self.endGame(client)
                 break
             else:
@@ -137,9 +133,26 @@ class ClientThread(Thread):
     def endGame(self, client):
         Server.remove(client)
         client.close()
-        print('client removed')
+        logger.info('client %s disconnected', self.ip)
             
 if __name__ == '__main__':
+    
+    logger = logging.getLogger('server_logger')
+    logger.setLevel(logging.DEBUG)
+    
+    fh = logging.FileHandler('server.log')
+    fh.setLevel(logging.DEBUG)
+    
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.ERROR)
+    
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    ch.setFormatter(formatter)
+    fh.setFormatter(formatter)
+    
+    logger.addHandler(ch)
+    logger.addHandler(fh)
+
     mapa = maps.Map()
     server = Server(mapa)
     server.run()

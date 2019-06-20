@@ -1,16 +1,22 @@
 # -*- coding: utf-8 -*-
 import random
+import logging
+import store.codes as codes
 from store.card import Card
 import store.options as options 
 
+logger = logging.getLogger('server_logger')
 
 class Map(object):
-    def __init__(self,):
+    def __init__(self):
         self.read()
         pass
         
     def read(self):
-        file = open("../store/cards.txt","r")
+        try:
+            file = open("../../store/cards.txt","r")
+        except:
+            logger.error('%s ', codes.get_response_text(44))
         line = file.readline()
         self.allWords = []
         while line !="":
@@ -18,6 +24,7 @@ class Map(object):
             self.allWords.append(part[0])
             line = file.readline()
         file.close()
+        logger.info('cards sucessfully read')
 
     def random(self, level):
         random.shuffle(self.allWords)        # mix all cards
@@ -35,5 +42,6 @@ class Map(object):
         self.words = self.words*2
         self.create_cards()
         random.shuffle(self.cards)
+        logger.info('map for %d level succesfuly created', level)
         return  self.cards
         
