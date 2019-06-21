@@ -7,9 +7,9 @@ with open('README.md') as f:
 setup(
     name='Memorsy!',
     version='0.1.0',
-    description='Memorsy! Game',
+    description='Memorsy!',
     long_description=readme,
     author='Kate Rymsza',
     author_email='rymszakasia@gmail.com',
-    packages=find_packages(exclude=('clientServer', 'components', 'keys', 'store', 'utils'))
+    packages=find_packages(exclude=('src', 'components', 'keys', 'store', 'utils'))
 )

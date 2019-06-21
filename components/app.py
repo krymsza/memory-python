@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 import tkinter as tk
 from tkinter import messagebox
 import pickle
@@ -37,7 +38,9 @@ class App:
         self.pairs = 0
      
     def get_card_content(self, id):
-        self.s.send(str(id).encode() + CRLF.encode())
+        if not self.client.send_message(str(id).encode(), CRLF):
+            self.quit()
+            
         response = self.client.recv_all(CRLF)
         return response
 
@@ -64,8 +67,11 @@ class App:
         
         self.level = self.levelVal.get()
         # sending int 
-        self.s.send(int_to_bytes(self.level) + CRLF.encode())
-        is_map_created = self.client.get_response()
+        if not self.client.send_message(int_to_bytes(self.level), CRLF):
+            self.quit()
+            
+        is_map_created = self.client.get_response() #returning int
+        
         if(is_map_created == int(codes.get_code('Success'))):
             self.start()
             
@@ -79,7 +85,6 @@ class App:
         self.create_cards()
         self.print_board()
 
-
     def print_board(self):
         xvar=10
         yvar=70
@@ -87,8 +92,10 @@ class App:
         cards_index = 0
         for i in range(self.sideLen):
             for j in range(options.levels[self.level]):
-
-                cmd = lambda index = cards_index: self.click(index)
+                try:
+                    cmd = lambda index = cards_index: self.click(index)
+                except:
+                    self.quit()
                 self.buttons.append(tk.Button(
                         self.root,
                         command=cmd,
@@ -108,47 +115,60 @@ class App:
         for i in range(len(self.radiobuttons)):
             self.radiobuttons[i].pack_forget()
 
-    def click(self,index):
-        if self.cards_layout[index].up == False:
-
-            # turn card on
-            self.cards_layout[index].up = True
-            self.buttons[index].config(text=self.get_card_content(index))
-            self.cards_up += 1
-
-            #clears button if 2 click
-            if len(self.cards_to_compare) == 2:
-                if self.found ==  True:
-                    self.buttons[self.cards_to_compare[0]].pack_forget()
-                    self.buttons[self.cards_to_compare[1]].pack_forget()
-                else:
-                    self.buttons[self.cards_to_compare[0]].config(
-                            text= self.cards_layout[self.cards_to_compare[0]]
-                            )
-                    self.buttons[self.cards_to_compare[1]].config(
-                            text= self.cards_layout[self.cards_to_compare[1]]
-                            )
-                self.cards_to_compare = []
+    def click(self, index):
+        try:
+            if self.cards_layout[index].up == False:
     
-            #add cards to compare & compare if 2
-            if self.cards_up == 2:
-                self.cards_up = 0
-                self.cards_to_compare.append(index)
-                self.compare()
-            else:
-                self.cards_to_compare.append(index)
+                # turn card on
+                self.cards_layout[index].up = True
+                content = self.get_card_content(index)
                 
-        else:
-            text = self.var.get()
-            self.var.set("Choose another card")
+                self.buttons[index].config(text=content)
+                self.cards_up += 1
+    
+                #clears button if 2 click
+                if len(self.cards_to_compare) == 2:
+                    if self.found ==  True:
+                        self.buttons[self.cards_to_compare[0]].pack_forget()
+                        self.buttons[self.cards_to_compare[1]].pack_forget()
+                    else:
+                        self.buttons[self.cards_to_compare[0]].config(
+                                text= self.cards_layout[self.cards_to_compare[0]]
+                                )
+                        self.buttons[self.cards_to_compare[1]].config(
+                                text= self.cards_layout[self.cards_to_compare[1]]
+                                )
+                    self.cards_to_compare = []
+        
+                #add cards to compare & compare if 2
+                if self.cards_up == 2:
+                    self.cards_up = 0
+                    self.cards_to_compare.append(index)
+                    self.compare()
+                else:
+                    self.cards_to_compare.append(index)
+                    
+            else:
+                text = self.var.get()
+                self.var.set("Choose another card")
+        except:
+            logger.error('connection droped')
 
     def compare(self):
         self.attempts += 1
         # send to server two ids
         logger.info('card %d , %d comparing',self.cards_to_compare[0], self.cards_to_compare[1])
-        data = pickle.dumps(self.cards_to_compare)
-        self.s.send(data + CRLF.encode())
+        try:
+            data = pickle.dumps(self.cards_to_compare)
+        except pickle.PicklingError:
+            logger.error('PicklingError')
+            
+        if not self.client.send_message(data, CRLF):
+            logger.error('Pickling error')
+        
         result = self.client.get_response()
+        ##
+        
         if result == int(codes.get_code('PairFound')):
             logger.info('these cards are match')
             self.cards_layout[self.cards_to_compare[0]].up = True
@@ -184,7 +204,9 @@ class App:
         self.newGameButton.pack_forget()
         self.endGameButton.pack_forget()
         code = codes.get_code('NewGame')
-        self.s.send(code.encode() + CRLF.encode())
+        #
+        self.client.send_message(code, CRLF)
+        #
         result = self.client.get_response()
         if result == int(codes.get_code("Available")):
             text = self.var.get()
@@ -206,19 +228,22 @@ class App:
     def endGame(self):
         logger.info('quitting game')
         code = codes.get_code('EndGame')
-        self.s.send(code.encode() + CRLF.encode())
-        self.quit()
+        #
+        self.client.send_message(code, CRLF) # sending close req
+        self.root.destroy()
+        sys.exit()
         
     def quit(self):
         self.root.destroy()
         self.s.close()
+        sys.exit()
 
     def on_closing(self):
         if messagebox.askokcancel("Quit", "Do you want to quit?"):
-            self.root.destroy()
             #TODO: change this to some high code
-            self.s.send(('QuitGame').encode() + CRLF.encode())
-            self.s.close()  
+            self.client.send_message(b'QuitGame', CRLF)
+            self.s.close()
+            self.root.destroy()
 
 def get_layout(cli, s):
     logger.info('*** app started')   

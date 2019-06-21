@@ -40,5 +40,5 @@ def get_response_text(code):
 def get_code(text):
     for i in codes:
         if i[1] == text:
-            print(i)
+            #print(i)
             return i[0]
